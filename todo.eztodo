@@ -1,0 +1,107 @@
+{
+  "spaceName": "my todo space",
+  "lists": [
+    {
+      "listName": "Todo",
+      "todos": [
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "Primer despliegue",
+          "id": "332e8e6e-d24d-4cf3-b518-6efe4c213ed4"
+        }
+      ],
+      "id": "930cb7f3-6c35-4f33-8b91-ca899338be7e"
+    },
+    {
+      "listName": "Doing",
+      "todos": [
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "Renderizado por roles\n",
+          "id": "c27d414a-4736-4c27-9c14-f647c335287b"
+        },
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "Despues de login obtener roles\n",
+          "id": "a57515a5-b413-4f7e-9e82-d35fae2eaf1a"
+        },
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "Guardar el token en local",
+          "id": "b7e1b2df-7407-4e85-ab9f-fe65a0c06ff1"
+        },
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "Crear el form login",
+          "id": "649ed2be-da3d-469b-9777-e8d6fdd6152c"
+        },
+        {
+          "priority": 0,
+          "time": 1,
+          "content": "Hacer el web admin",
+          "id": "256a766f-a26e-4fe0-a5e5-6d8e5f33f44b"
+        }
+      ],
+      "id": "85e33586-a73f-4b0c-9742-f3e9d94d1ec3"
+    },
+    {
+      "listName": "Done",
+      "todos": [
+        {
+          "priority": 2,
+          "time": 0,
+          "content": "Establecer la fecha Ecuador en el front",
+          "id": "60f98bd1-20bc-42d2-9bbf-d1d4510d000f"
+        },
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "Fetch crear cliente",
+          "id": "74348020-9798-40f8-ad3c-2a28b55ec752"
+        },
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "en New Invoice, agregar el campo image",
+          "id": "2493aa44-2dfb-4a66-a452-5759b015345d"
+        },
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "En el factura agregar el campo de payImage",
+          "id": "688af2ab-ec8c-4ea3-9efe-9d7535097436"
+        },
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "en los barber se debe poder filtrar por fecha",
+          "id": "1b076696-827d-4fd3-8bef-c80ee43ac022"
+        },
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "en los barber, debe salir el tota",
+          "id": "543ed609-3585-4727-9a57-a2f3ceebc213"
+        },
+        {
+          "priority": 0,
+          "time": 0,
+          "content": "Listar metodos de pago en el front\n",
+          "id": "1cb11568-4e92-44ba-b668-df739b23b389"
+        },
+        {
+          "priority": 0,
+          "time": 1,
+          "content": "crear usuarios\nBarber",
+          "id": "75560456-b8d5-471c-808f-cba87b2e60e8"
+        }
+      ],
+      "id": "7c40e41d-4421-40ed-9ebe-6e8eebd08ad1"
+    }
+  ]
+}
