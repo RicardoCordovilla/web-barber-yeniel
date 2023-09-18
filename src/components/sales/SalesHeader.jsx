@@ -7,6 +7,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { config } from '../../utils/config';
 
+const logo = '../../../logo.jpeg'
+
 const user = JSON.parse(localStorage.getItem('user'));
 console.log(user);
 
@@ -21,8 +23,36 @@ const SalesHeader = ({ invoices = [] }) => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-
+            // backgroundColor: '#dddddd6e',
         }}>
+            <figure
+            style={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                margin: '0',
+                padding: '0',
+                zIndex: '-1',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                opacity: '0.1',
+            }}
+            >
+                <img src={logo} alt="" 
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                }}
+
+                />
+            </figure>
+
             {
                 user?.roles.find(el => el === config.roles.seller)
                     ? null
