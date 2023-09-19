@@ -16,11 +16,12 @@ const digits = (num) => {
 }
 
 const formatDate = (date) => {
-    const fecha = new Date(date)
-    let stringDate = fecha.getFullYear() + '-' + digits(fecha.getMonth() + 1) + '-' + digits(fecha.getDate())
-    return stringDate
+    const newDate = date.split('-')[0] + '-' + digits(date.split('-')[1]) + '-' + digits(date.split('-')[2])
+    return newDate
 }
 
+const currentDate = new Date()
+const fechaActual = formatDate(currentDate.toLocaleDateString("es-EC", { timeZone: 'America/Lima' }, { year: 'numeric', month: '2-digit', day: '2-digit' }).split('/').reverse().join('-'))
 
 const invoiceTemplate =
 {
@@ -70,6 +71,8 @@ const NewInvoice = ({ setInvoices, invoices, setOpenModal }) => {
 
     const [openNewCustomer, setOpenNewCustomer] = useState(false);
 
+    const [message, setMessage] = useState(null);
+
 
     const handleNewClient = (newClient) => {
         if (newClient && newClient.inputValue) {
@@ -80,8 +83,8 @@ const NewInvoice = ({ setInvoices, invoices, setOpenModal }) => {
     };
 
     const handleCreateInvoice = () => {
-        const currentDate = new Date()
-        const emitDate = formatDate(currentDate.toLocaleDateString("es-EC", { timeZone: 'America/Lima' }, { year: 'numeric', month: '2-digit', day: '2-digit' }).split('/').reverse().join('-'))
+        
+        // const emitDate = formatDate(currentDate.toLocaleDateString("es-EC", { timeZone: 'America/Lima' }, { year: 'numeric', month: '2-digit', day: '2-digit' }).split('/').reverse().join('-'))
         // console.log(emitDate);
         // console.log(paymentMethod);
         // console.log(product);
@@ -91,7 +94,7 @@ const NewInvoice = ({ setInvoices, invoices, setOpenModal }) => {
         {
             ...invoiceTemplate,
             formOfPayment: paymentMethod?.code + "",
-            emitDate: emitDate,   // Fecha de hoy en formato ISO  (YYYY-MM-DD)    
+            emitDate: fechaActual,   // Fecha de hoy en formato ISO  (YYYY-MM-DD)    
             client: client['@id'] || "/api/clients/" + client.id,
             invoiceDetails: [
                 {
@@ -112,14 +115,14 @@ const NewInvoice = ({ setInvoices, invoices, setOpenModal }) => {
             total: (product.price * amount) + "",
         }
 
-        console.log(body);
+        setMessage(JSON.stringify(body));
 
-        // fetchNewInvoice({
-        //     url: config.db.invoices.create,
-        //     method: 'post',
-        //     body: body,
-        //     contentType: 'application/json'
-        // });
+        fetchNewInvoice({
+            url: config.db.invoices.create,
+            method: 'post',
+            body: body,
+            contentType: 'application/json'
+        });
 
         axios.post(
             config.db.invoices.create,
@@ -127,8 +130,8 @@ const NewInvoice = ({ setInvoices, invoices, setOpenModal }) => {
             {
                 headers: {
                     'Authorization': config.db.token,
-                    // 'Content-Type': 'application/json',
-                    // 'Accept': '*/*',
+                    'Content-Type': 'application/json',
+                    'Accept': '*/*',
                 }
             }
 
@@ -142,7 +145,9 @@ const NewInvoice = ({ setInvoices, invoices, setOpenModal }) => {
             })
             .catch((error) => {
                 console.log(error);
-                // alert('Error al crear la factura', error.response);
+                // setMessage(error.response.data['hydra:description']);
+                setMessage(fechaActual);
+                // alert('Error al crear la factura');
             })
 
 
@@ -198,6 +203,10 @@ const NewInvoice = ({ setInvoices, invoices, setOpenModal }) => {
                 p: 2,
                 overflowY: 'scroll',
             }}>
+
+                <Typography variant="body2" gutterBottom component="div">
+                    {JSON.stringify(message)}
+                </Typography>
 
                 <Box sx={{
                     display: 'flex',
