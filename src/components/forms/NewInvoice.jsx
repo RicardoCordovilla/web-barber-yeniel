@@ -115,14 +115,14 @@ const NewInvoice = ({ setInvoices, invoices, setOpenModal }) => {
             total: (product.price * amount) + "",
         }
 
-        setMessage(JSON.stringify(body));
+        // setMessage(JSON.stringify(body));
 
-        fetchNewInvoice({
-            url: config.db.invoices.create,
-            method: 'post',
-            body: body,
-            contentType: 'application/json'
-        });
+        // fetchNewInvoice({
+        //     url: config.db.invoices.create,
+        //     method: 'post',
+        //     body: body,
+        //     contentType: 'application/json'
+        // });
 
         axios.post(
             config.db.invoices.create,
@@ -203,10 +203,10 @@ const NewInvoice = ({ setInvoices, invoices, setOpenModal }) => {
                 p: 2,
                 overflowY: 'scroll',
             }}>
-
+{/* 
                 <Typography variant="body2" gutterBottom component="div">
                     {JSON.stringify(message)}
-                </Typography>
+                </Typography> */}
 
                 <Box sx={{
                     display: 'flex',
